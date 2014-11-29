@@ -19,12 +19,16 @@ respond_to :html, :json
   
   def new
     @item = Item.new new_item_params
-    @item.parent_id = params[:item_id]
+    if params[:item_id]
+      @item.parent_id = params[:item_id]
+      @item.position = Item.where(parent_id: params[:item_id]).count + 1
+    end
   end
 
   def create
-    @item = Item.create item_params
-    if params[:item][:parent_id]
+    @item = Item.new item_params
+    @item.save
+    if params[:item][:parent_id].present?
       path = item_path(@item.parent)
     else
       path = items_path
@@ -39,6 +43,6 @@ respond_to :html, :json
   end
 
   def item_params
-    params.require(:item).permit(:name, :parent_id)
+    params.require(:item).permit(:name, :parent_id, :position)
   end
 end
