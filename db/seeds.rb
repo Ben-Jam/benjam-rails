@@ -4,6 +4,10 @@
 
 # Top level items: ID, name, position
 #
+
+Item.create( id: 1000, name: "root", position: 1)
+
+
 item_list = [
   [ 1, "Food", 2, "i_admin.png" ],
   [ 2, "TV", 3, "i_admin.png" ],
@@ -13,7 +17,7 @@ item_list = [
 
 item_list.each do |id, name, position, image_path|
   image = File.read("app/assets/images/#{image_path}")
-  Item.create( id: id, name: name, position: position, image: image )
+  Item.create( id: id, name: name, position: position, image: image ,parent_id: 1000)
 end
 
 

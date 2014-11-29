@@ -1,5 +1,2 @@
-<%= render 'items/group_page', items: @items %>
+<%= render 'items/group_page', items: @items ,current_item: @item%>
 
-<div>
-  <%= link_to '+', new_item_item_path(@item), class: 'edit' %>
-</div>
