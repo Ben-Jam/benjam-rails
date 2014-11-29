@@ -1,12 +1,2 @@
-
-<section class="group-cards" id="group-cards-container">
-  <% @items.each do | item |%>
-  <div class="group-card">
-    <h2 class="group-card__header"><%= item.name%></h2>
-  </div>
-  <% end %>
-
-  <div>
-    <%= link_to '+', new_item_path, class: 'edit' %>
-  </div>
-</section>
+<%= render 'items/group_page',
+                   items: @items%> 
