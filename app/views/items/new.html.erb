@@ -1,0 +1,7 @@
+<%= form_for @item do |f| %>
+  <dl>
+    <dt>Name</dt>
+    <dd><%= f.text_field :name %></dd>
+  </dl>
+  <%= submit_tag 'Save' %>
+<% end %>

@@ -1,0 +1,13 @@
+
+<section class="group-cards" id="group-cards-container">
+  <% @items.each do | item |%>
+    <a class="group-card" href="<%= item_path(item.id) %>">
+      <img class="group-card__image" src="http://placehold.it/200x200">
+      <h2 class="group-card__header"><%= item.name%></h2>
+    </a>
+  <% end %>
+
+  <div>
+    <%= link_to '+', new_item_path, class: 'edit' %>
+  </div>
+</section>
