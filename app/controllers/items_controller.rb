@@ -7,7 +7,17 @@ respond_to :html, :json
     respond_with @items
   end
 
-  def show
+
+ def image
+     @item = Item.find(params[:id])
+     respond_to do |format|
+         format.jpg do
+             send_data @item.image, :type => 'image/jpg', :disposition => 'inline'
+             end
+     end
+ end
+     
+ def show
     @items = Item.order(:position).where('parent_id = ?',params[:id])
     if(@items.empty?)
       @item = Item.find(params[:id])
@@ -16,7 +26,8 @@ respond_to :html, :json
       render :show
     end
   end  
-  
+
+
   def new
     @item = Item.new item_params
   end

@@ -16,7 +16,10 @@ BenjamRails::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :items do
-    resources :items
+      member do
+        get 'image'
+      end
+    
   end
 
   # Example resource route with options:
