@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
-  
+
+respond_to :html, :json
+
   def index
-    items = []
-    Item.order(:position).find_all.each do | item|
-      items << {name: item.name,position: item.position,id: item.id}
-    end
-    render json: items
+    @items = Item.order(:position).where('parent_id IS NULL')
+    respond_with @items
   end
+
+  def show
+    @items = Item.order(:position).where('parent_id = ?',params[:id])
+    respond_with @items
+  end  
 end
