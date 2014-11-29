@@ -1,4 +1,5 @@
 <%= form_for @item do |f| %>
+  <%= f.hidden_field 'parent_id' %>
   <dl>
     <dt>Name</dt>
     <dd><%= f.text_field :name %></dd>

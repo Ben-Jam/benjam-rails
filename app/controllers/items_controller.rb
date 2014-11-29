@@ -8,9 +8,9 @@ respond_to :html, :json
   end
 
   def show
-    @items = Item.order(:position).where('parent_id = ?',params[:id])
+    @item = Item.find(params[:id])
+    @items = @item.children.order(:position)
     if(@items.empty?)
-      @item = Item.find(params[:id])
       render :show_choice
     else
       render :show
@@ -18,17 +18,27 @@ respond_to :html, :json
   end  
   
   def new
-    @item = Item.new item_params
+    @item = Item.new new_item_params
+    @item.parent_id = params[:item_id]
   end
 
   def create
     @item = Item.create item_params
-    redirect_to blahs_path, notice: 'Created'
+    if params[:item][:parent_id]
+      path = item_path(@item.parent)
+    else
+      path = items_path
+    end
+    redirect_to path, notice: 'Created'
   end
 
   private
 
+  def new_item_params
+    params.permit(:name)
+  end
+
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :parent_id)
   end
 end
