@@ -1,4 +1,7 @@
-<h1>
-<img src="<%= image_item_path(@item, format: :jpg) %>">
- this is a choice <%= @item.name%>
-</h1>
+<section class="chosen-item-callout">
+  <img src="<%= image_item_path(@item, format: :jpg) %>">
+  <h1 class="chosen-item-callout__heading">You have chosen <%= @item.name%></h1>
+  <p class="chosen-item-callout__done">
+    <a href="/" class="chosen-item-callout__done__link"><i class="fa fa-check"></i> Done</a>
+  </p>
+</section>

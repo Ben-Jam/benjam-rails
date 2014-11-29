@@ -18,7 +18,8 @@ respond_to :html, :json
  end
      
  def show
-    @items = Item.order(:position).where('parent_id = ?',params[:id])
+    @item = Item.find(params[:id])
+    @items = @item.children.order(:position)
     if(@items.empty?)
       render :show_choice
     else
