@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require 'main'
- *= require '_bootstrap'
+ * require '_bootstrap'
  */
