@@ -11,6 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require 'masonry.pkgd'
+
+// $(function(){
+//   console.log('hello')
+// var container = document.querySelector('#group-cards-container');
+// var msnry = new Masonry( container, {
+//   itemSelector: '.group-card'
+// });
+// })
