@@ -1,8 +1,12 @@
-<%= form_for @item do |f| %>
+<%= form_for @item, html: {multipart: true} do |f| %>
   <%= f.hidden_field 'parent_id' %>
   <dl>
     <dt>Name</dt>
     <dd><%= f.text_field :name %></dd>
+    <dt>Photo</dt>
+    <dd><%= f.file_field :image, accept:"image/*;capture=camera" %></dd>
+    <dt>Sound</dt>
+    <dd><%#= file_field :sound, accept:"audio/*;capture=microphone" %></dd>
     <dt>Position</dt>
     <dd><%= f.select :position, [1,2,3,4,5,6,7,8,9] %></dd>
   </dl>
