@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
   def index
-    render json: [:apple, :banana, :pool, :water, :computer, :toast, :tv, :hi5, :marshmallow]
+    items = []
+    Item.order(:position).find_all.each do | item|
+      items << {name: item.name,position: item.position,id: item.id}
+    end
+    render json: items
   end
 end
