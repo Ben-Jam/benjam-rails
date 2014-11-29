@@ -6,6 +6,8 @@
 
 
 @import "bootstrap-overrides/navbar";
+@import "bootstrap-overrides/container";
 
 // Application specific css
 @import 'groups/group-cards';
+@import 'groups/chosen-item-callout';

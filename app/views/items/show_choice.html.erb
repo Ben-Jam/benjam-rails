@@ -1,6 +1,6 @@
-<h1>
-  this is a choice <%= @item.name%>
-</h1>
-<div>
-  <%= link_to '+', new_item_item_path(@item), class: 'edit' %>
-</div>
+<section class="chosen-item-callout">
+  <h1 class="chosen-item-callout__heading">You have chosen <%= @item.name%></h1>
+  <p class="chosen-item-callout__done">
+    <a href="/" class="chosen-item-callout__done__link"><i class="fa fa-check"></i> Done</a>
+  </p>
+</section>
