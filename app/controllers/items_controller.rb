@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  
   def index
     items = []
     Item.order(:position).find_all.each do | item|
