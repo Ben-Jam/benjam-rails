@@ -47,3 +47,5 @@ children_item_list = [
 children_item_list.each do |id, name, parent, position|
   Item.create( id: id, name: name, parent_id: parent, position: position )
 end
+
+ActiveRecord::Base.connection.reset_pk_sequence!('items')
