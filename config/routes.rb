@@ -19,6 +19,7 @@ BenjamRails::Application.routes.draw do
    resources :items
    member do
         get 'image'
+        get 'audio'
       end
     
   end

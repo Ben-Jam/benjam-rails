@@ -17,7 +17,16 @@ respond_to :html, :json
              end
      end
  end
-     
+
+def audio
+    @item = Item.find(params[:id])
+    respond_to do |format|
+        format.mp3 do
+            send_data @item.image, :type => 'audio/mp3', :disposition => 'inline'
+        end
+    end
+end
+
  def show
     @item = Item.find(params[:id])
     @items = @item.children.order(:position)
