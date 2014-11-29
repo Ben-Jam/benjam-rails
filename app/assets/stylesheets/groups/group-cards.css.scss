@@ -1,13 +1,9 @@
-
-.group-cards {
-  @include clearfix;
-}
-
 .group-card {
+  display: inline-block;
+  width: 40%;
   padding: 10px;
-  margin: 10px;
-  width: 200px;
-  float: left;
+  margin: 5px;
+  
   background-color: #fafafa;
   color: #333333;
 
@@ -15,6 +11,14 @@
     color: #333333;
     text-decoration: none;
   }
+}
+
+.group-card__image {
+  width: 100%;
+}
+
+.group-card__header {
+  margin-top: 10px;
 }
 
 .edit {
@@ -27,12 +31,22 @@
   text-indent: -9999px;
 }
 
-.group-card__header {
-  margin-top: 10px;
+@media (min-width: $screen-sm-min) {
+  .group-cards {
+    @include clearfix;
+  }
+
+  .group-card {
+    width: 200px;
+    float: left;
+    margin: 10px;
+  }
 }
 
-.group-card__image {
-  margin-top: -10px;
-  margin-left: -10px;
-  margin-right: -10px;
+@media (min-width: $screen-md-min) {
+
+}
+
+@media (min-width: $screen-lg-min) {
+
 }
