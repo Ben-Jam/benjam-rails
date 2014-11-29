@@ -1,15 +1,19 @@
-.chosen-item-callout__heading {
+.chosen-item-callout {
   text-align: center;
+}
+
+.chosen-item-callout__heading {
   margin-bottom: 30px;
   font-size: 60px;
   margin-top: 40px;
 }
 
-.chosen-item-callout__done {
-  text-align: center;
-}
 .chosen-item-callout__done__link {
   @extend .btn;
   @extend .btn-default;
   @extend .btn-lg;
+}
+
+.chosen-item-callout__image {
+  width: 50%;
 }
