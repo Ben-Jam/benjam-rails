@@ -16,4 +16,19 @@ respond_to :html, :json
       render :show
     end
   end  
+  
+  def new
+    @item = Item.new item_params
+  end
+
+  def create
+    @item = Item.create item_params
+    redirect_to blahs_path, notice: 'Created'
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name)
+  end
 end
