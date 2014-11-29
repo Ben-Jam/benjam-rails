@@ -23,9 +23,8 @@ ActiveRecord::Schema.define(version: 20141129040041) do
 
   create_table "items", force: true do |t|
     t.string   "name"
-    
     t.integer  "position"
-    t.binary    "image", :limit => 16000000
+    t.binary   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"

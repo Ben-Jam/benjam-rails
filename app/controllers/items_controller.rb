@@ -38,6 +38,8 @@ respond_to :html, :json
 
   def create
     @item = Item.new item_params
+    @item.image = params[:item][:image].read
+    puts @item.inspect
     @item.save
     if params[:item][:parent_id].present?
       path = item_path(@item.parent)
@@ -50,7 +52,7 @@ respond_to :html, :json
   private
 
   def new_item_params
-    params.permit(:name)
+    params.permit(:name, :parent_id, :position, :image)
   end
 
   def item_params
