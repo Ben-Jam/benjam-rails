@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: benjam_rails_development
+  database: benjam-rails_development
   pool: 5
-  username: benjam_rails
+  username: benjam-rails
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: benjam_rails_test
+  database: benjam-rails_test
   pool: 5
-  username: benjam_rails
+  username: benjam-rails
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: benjam_rails_production
+  database: benjam-rails_production
   pool: 5
-  username: benjam_rails
+  username: benjam-rails
   password:
