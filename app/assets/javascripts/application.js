@@ -20,3 +20,5 @@
 //   itemSelector: '.group-card'
 // });
 // })
+//
+//= require 'items'

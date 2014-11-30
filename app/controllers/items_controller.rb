@@ -38,7 +38,11 @@ respond_to :html, :json
 
   def create
     @item = Item.new item_params
-    @item.image = params[:item][:image].read
+    if params[:item][:image].is_a? String
+      @item.image = Base64::decode64(params[:item][:image])
+    else
+      @item.image = params[:item][:image].read
+    end
     puts @item.inspect
     @item.save
     if params[:item][:parent_id].present?

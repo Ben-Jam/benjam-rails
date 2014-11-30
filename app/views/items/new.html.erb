@@ -4,7 +4,19 @@
     <dt>Name</dt>
     <dd><%= f.text_field :name %></dd>
     <dt>Photo</dt>
-    <dd><%= f.file_field :image, accept:"image/*;capture=camera" %></dd>
+    <dd>
+      <% if @item.image %>
+        <% #TODO: edit mode %>
+        <%= image_tag(image_item_path(@item)) %>
+      <% else %>
+        <video autoplay></video>
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+        <button id="snap">Take Photo</button>
+        <button id="new_photo" style="display:none;">New Photo</button>
+        <%= f.text_field :image %>
+      <% end %>
+    </dd>
+    <!--<dd><%= f.file_field :image, accept:"image/*;capture=camera" %></dd> -->
     <dt>Sound</dt>
     <dd><%#= file_field :sound, accept:"audio/*;capture=microphone" %></dd>
     <dt>Position</dt>
