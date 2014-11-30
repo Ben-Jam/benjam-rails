@@ -6,7 +6,7 @@
     <div class="new_form">
       <div>Name: <%= f.text_field :name %></div>
       <div>Photo: <%= f.file_field :image, accept:"image/*;capture=camera" %></div>
-      <div>Sound : <%= file_field :audio, accept:"audio/*;capture=microphone" %></div>
+      <div>Sound : <%= f.file_field :audio, accept:"audio/*;capture=microphone" %></div>
       <div>Position : <%= f.select :position, [1,2,3,4,5,6,7,8,9] %></div>
     </div>
     <%= submit_tag 'Save' %>
