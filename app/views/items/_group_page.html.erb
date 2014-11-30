@@ -1,6 +1,6 @@
 <section class="group-cards" id="group-cards-container">
   <div id="item-heading"><%=current_item.name%></div>
-  <div>
+  <div id="all_cards">
     <% @items.each do | item |%>
       <a class="group-card" href="<%= item_path(item.id) %>">
       <img class="group-card__image" src="<%= image_item_path(item, format: :jpg) %>">

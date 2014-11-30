@@ -6,12 +6,16 @@ section.group-cards{
   //display: inline-block;
 }
 
+#all_cards {
+  margin-left: 40px
+}
 
 #item-heading{
   //color: #25b1e2;
   font-size: 60px;
   font-weight: 600;
   text-align: center;
+  margin: 45px 0 45px 0;
 }
 .group-card {
  
@@ -20,7 +24,7 @@ section.group-cards{
   margin: 5px;
   text-align: center;
   
-  background-color: #fafafa;
+  background-color: white;
 
   &:hover {
     text-decoration: none;

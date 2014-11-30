@@ -14,13 +14,19 @@
     <!-- Fixed navbar -->
     <div>
       <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Benjams</a>
+        <div>
+          <%= image_tag "user_ben.png",class: 'user' %>
         </div>
+        <div class="navbar-header">
+          <a href="<%=item_items_path(Item.root)%>">
+            <%= image_tag "i_home.png",class: 'home' %>
+          </a>
+        </div>
+
         <%if @item && @item.id%>
           <div>
             <a href="<%=new_item_item_path(@item)%>">
-              <%= image_tag "i_add.png",class: 'edit' %>
+              <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
         <%end%>
