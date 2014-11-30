@@ -25,6 +25,6 @@ $(function() {
   // On pressing delete_step1 show delete_step2 for a few seconds
   $("#delete_step1").on("click", function() {
     $("#delete_step2").show();
-    setTimeout(function(){$("#delete_step2").hide()}, 1000 );
+    setTimeout(function(){$("#delete_step2").hide()}, 3000 );
   });
 });
