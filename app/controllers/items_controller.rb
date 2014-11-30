@@ -12,16 +12,18 @@ respond_to :html, :json
      @item = Item.find(params[:id])
      respond_to do |format|
          format.jpg do
-             send_data @item.image, :type => 'image/jpg', :disposition => 'inline'
-             end
+             self.response.headers["Content-Type"] ||= 'image/jpg'
+             send_data @item.image, options = { :type => 'image/jpg', :disposition => 'inline'}
+            end
      end
  end
 
 def audio
     @item = Item.find(params[:id])
     respond_to do |format|
-        format.mp3 do
-            send_data @item.image, :type => 'audio/mp3', :disposition => 'inline'
+        format.wav do
+            self.response.headers["Content-Type"] ||= 'audio/wav'
+            send_data @item.audio,  options: {type:'audio/wav; header=present', disposition:'inline', stream:true}
         end
     end
 end
