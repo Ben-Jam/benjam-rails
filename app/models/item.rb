@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
  
   belongs_to :parent, class_name: "Item"
 
-  ROOT='root'
+  ROOT='I want...'
 
   def self.root
     Item.where("name = ?",ROOT).first 

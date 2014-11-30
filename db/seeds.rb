@@ -5,7 +5,7 @@
 # Top level items: ID, name, position
 #
 
-Item.create( id: 1000, name: "root", position: 1)
+Item.create( id: 1000, name: "I want...", position: 1)
 
 
 item_list = [
