@@ -1,5 +1,3 @@
-<section class="menu-container">
-</section>  
 <section class="group-cards" id="group-cards-container">
   <div id="item-heading"><%=current_item.name%></div>
   <div>
@@ -10,15 +8,8 @@
       <h2 class="group-card__header"><%= item.name%></h2>
       </a>
       <% end %>
-
-      <div>
-        <%= link_to '+', new_item_path, class: 'edit' %>
-      </div>
   </div>
 </section>
-<div>
-  <%= link_to '+', new_item_item_path(current_item), class: 'edit' %>
-</div>
 
 
 

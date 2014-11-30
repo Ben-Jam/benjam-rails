@@ -1,23 +1,21 @@
-section .group-cards{
+section.group-cards{
   color: #25b1e2;
+  font-family: 'Open Sans', sans-serif;
   float: right;
   width: 90%;
+  //display: inline-block;
 }
 
+
 #item-heading{
-  color: #25b1e2;
+  //color: #25b1e2;
   font-size: 60px;
   font-weight: 600;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
-
 .group-card {
  
-  color: #25b1e2;
-  font-family: "Open Sans";
   display: inline-block;
-  width: 33%;
   padding: 10px;
   margin: 5px;
   text-align: center;
@@ -37,15 +35,7 @@ section .group-cards{
   margin-top: 10px;
 }
 
-.edit {
-  position: fixed;
-  bottom: 5px;
-  right: 15px;
-  background-image: image-url('i_add.png');
-  height: 85px;
-  width: 84px;
-  text-indent: -9999px;
-}
+
 
 @media (min-width: $screen-sm-min) {
   .group-cards {
@@ -53,7 +43,7 @@ section .group-cards{
   }
 
   .group-card {
-    width: 200px;
+    width: 25%;
     float: left;
     margin: 10px;
   }
