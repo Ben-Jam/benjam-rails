@@ -29,11 +29,10 @@
               <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
-          <%if @item && @item.id%>         
+          <%if @item.children.none?%>
+
+              <%= image_tag "i_minus_grey.png",class: 'delete',id: "delete_step1" %>         
              <div id="delete_step1">
-              <a href="<%=new_item_item_path(@item)%>">
-                <%= image_tag "i_add_grey.png",class: 'edit' %>
-              </a>
             </div>
           <%end%>         
         <%end%>

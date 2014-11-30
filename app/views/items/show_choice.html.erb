@@ -1,15 +1,15 @@
 <section class="chosen-item-callout">
-  <img id="item_image" class="chosen-item-callout__image" src="<%= image_item_path(@item, format: :jpg) %>">
+
+  <h1 class="chosen-item-callout__heading"><%= @item.name%></h1>
+  <img id="item_image" class="chosen-item-callout__image" src="<%= image_item_path(@item, format: :jpg) %>"/>
   <audio id="item_audio" src="<%= audio_item_path(@item, format: :wav) %>" autoplay="true" autobuffer="true" ></audio>
-  <h1 class="chosen-item-callout__heading">You have chosen <%= @item.name%></h1>
-  <p class="chosen-item-callout__done">
-    <a href="/" class="chosen-item-callout__done__link"><i class="fa fa-check"></i> Done</a>
-  </p>
-  <p class="chosen-item-callout__delete">
-    <div id="delete_step2">
-      <%= button_to 'Confirm Delete', item_path(@item), method: :delete, class: 'chosen-item-callout__delete__link' %>
-    </div>
-  </p>
+  <span class="chosen-item-callout__done">
+    <a href="/" class="choice_done"><i class="fa fa-check"></i></a>
+    <a href="/" class="choice_cancelled"><i class="fa fa-times"></i></a>
+  </span>
+  <div id="delete_step2">
+    <%= button_to 'Confirm Delete', item_path(@item), method: :delete, class: 'chosen-item-callout__delete__link' %>
+  </div>
 </section>
 <script>
 var itemAudio = $("#item_audio")[0];
