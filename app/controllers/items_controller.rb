@@ -62,6 +62,12 @@ end
     redirect_to path, notice: 'Created'
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to item_path(@item.parent), notice: 'Item deleted'
+  end
+
   private
 
   def new_item_params

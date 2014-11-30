@@ -5,6 +5,12 @@
   <p class="chosen-item-callout__done">
     <a href="/" class="chosen-item-callout__done__link"><i class="fa fa-check"></i> Done</a>
   </p>
+  <p class="chosen-item-callout__delete">
+    <div id="delete_step1">Delete</div>
+    <div id="delete_step2">
+      <%= button_to 'Confirm Delete', item_path(@item), method: :delete, class: 'chosen-item-callout__delete__link' %>
+    </div>
+  </p>
 </section>
 <script>
 var itemAudio = $("#item_audio")[0];
