@@ -1,14 +1,14 @@
-<%= form_for @item, html: {multipart: true} do |f| %>
-  <%= f.hidden_field 'parent_id' %>
-  <dl>
-    <dt>Name</dt>
-    <dd><%= f.text_field :name %></dd>
-    <dt>Photo</dt>
-    <dd><%= f.file_field :image, accept:"image/*;capture=camera" %></dd>
-    <dt>Sound</dt>
-    <dd><%= file_field :audio, accept:"audio/*;capture=microphone" %></dd>
-    <dt>Position</dt>
-    <dd><%= f.select :position, [1,2,3,4,5,6,7,8,9] %></dd>
-  </dl>
-  <%= submit_tag 'Save' %>
-<% end %>
+<section class="chosen-item-callout">
+
+  <h1 class="chosen-item-callout__heading">New Item</h1>
+  <%= form_for @item, html: {multipart: true, role: "form"} do |f| %>
+    <%= f.hidden_field 'parent_id' %>
+    <div class="new_form">
+      <div>Name: <%= f.text_field :name %></div>
+      <div>Photo: <%= f.file_field :image, accept:"image/*;capture=camera" %></div>
+      <div>Sound : <%= file_field :audio, accept:"audio/*;capture=microphone" %></div>
+      <div>Position : <%= f.select :position, [1,2,3,4,5,6,7,8,9] %></div>
+    </div>
+    <%= submit_tag 'Save' %>
+  <% end %>
+</section>
