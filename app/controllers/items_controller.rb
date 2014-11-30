@@ -24,7 +24,7 @@ def audio
     respond_to do |format|
         format.wav do
             self.response.headers["Content-Type"] ||= 'audio/wav'
-            send_data @item.audio,  options: {type:'audio/wav; header=present', disposition:'inline', stream:true}
+            send_data @item.audio,  options: {type:'audio/wav; header=present', disposition:'inline'}
         end
     end
 end

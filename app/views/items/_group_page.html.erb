@@ -1,17 +1,10 @@
 <section class="group-cards" id="group-cards-container">
+  <div id="item-heading"><%=current_item.name%></div>
+  <div>
   <% @items.each do | item |%>
     <a class="group-card" href="<%= item_path(item.id) %>">
   		<img class="group-card__image" src="<%= image_item_path(item, format: :jpg) %>">
         <audio controls src="<%= audio_item_path(item, format: :wav) %>" ></audio>
-      <h2 class="group-card__header"><%= item.name%></h2>
-    </a>
-  <% end %>
-
-  <div>
-    <% @items.each do | item |%>
-      <a class="group-card" href="<%= item_path(item.id) %>">
-      <img class="group-card__image" src="<%= image_item_path(item, format: :jpg) %>">
-      <img class="group-card__audio" src="<%= audio_item_path(item, format: :jpg) %>">
       <h2 class="group-card__header"><%= item.name%></h2>
       </a>
       <% end %>
