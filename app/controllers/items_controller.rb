@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 respond_to :html, :json
 
   def index
-    @items = Item.order(:position).where('parent_id IS NULL')
+    @item = Item.root
+    @items = Item.order(:position).where('parent_id = ?',@item.id)
     respond_with @items
   end
 
@@ -49,7 +50,8 @@ end
 
   def create
     @item = Item.new item_params
-    @item.image = params[:item][:image].read
+    @item.image = params[:item][:image].read if params[:item][:image]
+    @item.audio = params[:item][:audio].read if params[:item][:audio]
     puts @item.inspect
     @item.save
     if params[:item][:parent_id].present?
@@ -63,7 +65,7 @@ end
   private
 
   def new_item_params
-    params.permit(:name, :parent_id, :position, :image)
+    params.permit(:name, :parent_id, :position, :image, :audio)
   end
 
   def item_params

@@ -12,16 +12,26 @@
 
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Benjams</a>
-      </div>
-    </nav>
-
     <div>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Benjams</a>
+        </div>
+        <%if @item && @item.id%>
+          <div>
+            <a href="<%=new_item_item_path(@item)%>">
+              <%= image_tag "i_add.png",class: 'edit' %>
+            </a>
+          </div>
+        <%end%>
 
-      <%= yield %>
+      </nav>
 
+      <div>
+
+        <%= yield %>
+
+      </div>
     </div> <!-- /container -->
 
 </body>

@@ -4,6 +4,10 @@
 
 # Top level items: ID, name, position
 #
+
+Item.create( id: 1000, name: "I want...", position: 1)
+
+
 item_list = [
   [ 1, "Food", 2, "c_food.jpg", "c_food.wav" ],
   [ 2, "TV", 3, "c_tv.jpg", "c_tv.wav" ],
@@ -14,7 +18,7 @@ item_list = [
 item_list.each do |id, name, position, image_path, audio_path|
   image = File.read("app/assets/images/#{image_path}")
   audio = File.read("app/assets/audio/#{audio_path}")
-  Item.create( id: id, name: name, position: position, image: image, audio: audio)
+  Item.create( id: id, name: name, position: position, image: image, audio: audio,parent_id: 1000)
 end
 
 
@@ -31,19 +35,19 @@ children_item_list = [
   [ 12, "nutella toast", 1, 8, "toast.jpg", "toast.wav" ],
 
 
-  [ 13, "Barney", 2, 1, "i_admin.png", "c_tv.wav" ],
-  [ 14, "Brainy Baby", 2, 2, "i_admin.png", "c_tv.wav"  ],
-  [ 15, "Elmo", 2, 3, "i_admin.png", "c_tv.wav"  ],
-  [ 16, "Giggle Bellies", 2, 4, "i_admin.png", "c_tv.wav"  ],
-  [ 17, "Hi-5", 2, 5, "i_admin.png", "c_tv.wav"  ],
-  [ 18, "music", 2, 6, "i_admin.png", "c_tv.wav"  ],
-  [ 19, "Wiggles", 2, 7, "i_admin.png", "c_tv.wav"  ],
+  [ 13, "Barney", 2, 1, "i_admin.png", "barney.wav" ],
+  [ 14, "Brainy Baby", 2, 2, "i_admin.png", "brainybaby.wav"  ],
+  [ 15, "Elmo", 2, 3, "i_admin.png", "elmo.wav"  ],
+  [ 16, "Giggle Bellies", 2, 4, "i_admin.png", "gigglebellies.wav"  ],
+  [ 17, "Hi-5", 2, 5, "i_admin.png", "hi5.wav"  ],
+  [ 18, "music", 2, 6, "i_admin.png", "music.wav"  ],
+  [ 19, "Wiggles", 2, 7, "i_admin.png", "wiggles.wav"  ],
 
-  [ 20, "Elmo and I know it", 4, 1,"i_admin.png", "c_tv.wav"  ],
-  [ 21, "Gangnam Style", 4, 2, "i_admin.png", "c_tv.wav"  ],
-  [ 22, "Giggle Bellies", 4, 3, "i_admin.png", "c_tv.wav"  ],
-  [ 23, "Hi-5", 4, 4, "i_admin.png", "c_tv.wav"  ],
-  [ 24, "One Direction", 4, 5, "i_admin.png", "c_tv.wav"  ]
+  [ 20, "Elmo and I know it", 4, 1,"i_admin.png", "elmoandiknowit.wav"  ],
+  [ 21, "Gangnam Style", 4, 2, "i_admin.png", "gangnamstyle.wav"  ],
+  [ 22, "Giggle Bellies", 4, 3, "i_admin.png", "gigglebellies.wav"  ],
+  [ 23, "Hi-5", 4, 4, "i_admin.png", "hi5.wav"  ],
+  [ 24, "One Direction", 4, 5, "i_admin.png", "onedirection.wav"  ]
 ]
 
 children_item_list.each do |id, name, parent, position, image_path, audio_path|

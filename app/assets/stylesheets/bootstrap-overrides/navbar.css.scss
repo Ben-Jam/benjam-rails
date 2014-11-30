@@ -1,5 +1,7 @@
 .navbar {
   border: none;
+  float: left;
+  width: 10%
 }
 
 .navbar-default .navbar-brand {
@@ -12,4 +14,11 @@
   color: #fff;
   font-size: 16px;
   padding: 0 0 0 4px;
+}
+
+.edit {
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
+  margin: 0 0 0 17px;
 }

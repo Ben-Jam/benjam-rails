@@ -6,7 +6,7 @@
     <dt>Photo</dt>
     <dd><%= f.file_field :image, accept:"image/*;capture=camera" %></dd>
     <dt>Sound</dt>
-    <dd><%#= file_field :sound, accept:"audio/*;capture=microphone" %></dd>
+    <dd><%= file_field :audio, accept:"audio/*;capture=microphone" %></dd>
     <dt>Position</dt>
     <dd><%= f.select :position, [1,2,3,4,5,6,7,8,9] %></dd>
   </dl>
