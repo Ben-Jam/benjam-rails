@@ -85,13 +85,20 @@ end
     else
       path = items_path
     end
-    redirect_to path, notice: 'Created'
+    respond_to do |format|
+      format.html { redirect_to path, notice: 'Created'}
+      format.json { render json: @item }
+    end
+
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to item_path(@item.parent), notice: 'Item deleted'
+    respond_to do |format|
+      format.html { redirect_to item_path(@item.parent), notice: 'Item deleted' }
+      format.json { head :no_content , status: :ok}
+    end
   end
 
   private
