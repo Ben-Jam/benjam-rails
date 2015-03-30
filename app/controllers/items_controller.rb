@@ -2,13 +2,29 @@ class ItemsController < ApplicationController
 
 respond_to :html, :json
 
+# GET /items
+# GET /items.json
+# GET /items/1/items
+# GET /items/1/items.json
   def index
-    @item = Item.root
+      @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
     @items = Item.order(:position).where('parent_id = ?',@item.id)
-    respond_with @items
+    respond_to do |format|
+        format.html {
+            respond_with @items
+        }
+        format.json {
+            extract = []
+            @items.each do |i|
+                extract << item_extract(i)
+            end
+            render :json => extract
+            
+        }
+    end
   end
 
-
+# GET /items/1/images.jpg
  def image
      @item = Item.find(params[:id])
      respond_to do |format|
@@ -18,7 +34,7 @@ respond_to :html, :json
             end
      end
  end
-
+ # GET /items/1/audio.wav
 def audio
     @item = Item.find(params[:id])
     respond_to do |format|
@@ -29,13 +45,23 @@ def audio
     end
 end
 
+# GET /items/1
+# GET /items/1.json
  def show
+     
     @item = Item.find(params[:id])
     @items = @item.children.order(:position)
-    if(@items.empty?)
-      render :show_choice
-    else
-      render :show
+    respond_to do |format|
+        format.html {
+            if(@items.empty?)
+                render :show_choice
+            else
+                render :show
+            end
+        }
+        format.json {
+            render :json => item_extract(@item)
+        }
     end
   end  
 
@@ -77,4 +103,9 @@ end
   def item_params
     params.require(:item).permit(:name, :parent_id, :position)
   end
+  
+  def item_extract(item)
+      return { :id => item.id, :name => item.name, :position => item.position, :parent_id => item.parent_id,
+          :image => item_path(item.id) + "/image.jpg", :audio => item_path(item.id) + "/audio.wav" }
+      end
 end
