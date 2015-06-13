@@ -1,0 +1,17 @@
+CACHE MANIFEST
+<% unless Rails.env.production? %>
+<% paths_for_manifests(%w(application.js)).each do |manifest_path| %>
+<%= build_digested_asset_path manifest_path %>
+<% end %>
+<% end %>
+
+<% @asset_list.each do |asset| %>
+<%= build_digested_asset_path asset %>
+<% end %>
+
+<% @items.each do |item| %>
+<%= item_path item %>
+<%= image_item_path(item, format: :jpg) %>
+<%= audio_item_path(item, format: :wav) %>
+<% end %>
+
