@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
  
   belongs_to :parent, class_name: "Item"
 
+  belongs_to :client
+
   ROOT='I want...'
 
   def self.root

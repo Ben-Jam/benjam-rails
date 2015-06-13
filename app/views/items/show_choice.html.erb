@@ -4,11 +4,11 @@
   <img id="item_image" class="chosen-item-callout__image" src="<%= image_item_path(@item, format: :jpg) %>"/>
   <audio id="item_audio" src="<%= audio_item_path(@item, format: :wav) %>" autoplay="true" autobuffer="true" ></audio>
   <span class="chosen-item-callout__done">
-    <a href="/" class="choice_done"><i class="fa fa-check"></i></a>
-    <a href="/" class="choice_cancelled"><i class="fa fa-times"></i></a>
+    <a href="<%=client_path(@item.client.name)%>" class="choice_done"><i class="fa fa-check"></i></a>
+    <a href="<%=client_path(@item.client.name)%>" class="choice_cancelled"><i class="fa fa-times"></i></a>
   </span>
   <div id="delete_step2">
-    <%= button_to 'Confirm Delete', item_path(@item), method: :delete, class: 'chosen-item-callout__delete__link' %>
+    <%= button_to 'Confirm Delete', client_item_path(@client.name, @item), method: :delete, class: 'chosen-item-callout__delete__link' %>
   </div>
 </section>
 <script>

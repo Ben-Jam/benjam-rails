@@ -18,17 +18,26 @@
           <%= image_tag "user_ben.png",class: 'user' %>
         </div>
         <div class="navbar-header">
-          <a href="<%=item_items_path(Item.root)%>">
+          <a href="<%=client_path(@client.name)%>">
             <%= image_tag "i_home.png",class: 'home' %>
           </a>
         </div>
 
-        <%if @item && @item.id%>
+        <%unless @item && @item.id%>
           <div>
-            <a href="<%=new_item_item_path(@item)%>">
+            <a href="<%=new_client_item_path(@client.name)%>">
               <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
+        <%end%>  
+
+        <%if @item && @item.id%>
+          <div>
+            <a href="<%=new_client_item_item_path(@client.name, @item)%>">
+              <%= image_tag "i_add_grey.png",class: 'edit' %>
+            </a>
+          </div>
+
           <%if @item.children.none?%>
 
               <%= image_tag "i_minus_grey.png",class: 'delete',id: "delete_step1" %>         
