@@ -1,15 +1,14 @@
 CACHE MANIFEST
 <% unless Rails.env.production? %>
 <% paths_for_manifests(%w(application.js)).each do |manifest_path| %>
-<%= "/assets/#{@environment.find_asset(manifest_path).digest_path}" rescue nil %>
+<%= build_digested_asset_path manifest_path %>
 <% end %>
 <% end %>
 
 <% @asset_list.each do |asset| %>
-<%= "/assets/#{@environment.find_asset(asset).digest_path}" rescue nil %>
+<%= build_digested_asset_path asset %>
 <% end %>
-<%= stylesheet_path 'application' %>
-<%= javascript_path 'application' %>
+
 <% @items.each do |item| %>
 <%= item_path item %>
 <%= image_item_path(item, format: :jpg) %>
