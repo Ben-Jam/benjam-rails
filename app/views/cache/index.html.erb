@@ -1,5 +1,18 @@
 CACHE MANIFEST
-
+<% paths_for_manifests(%w(application.js)).each do |manifest_path| %>
+<%= manifest_path %>
+<% end %>
+assets/user_ben.png
+assets/i_home.png
+assets/i_add_grey.png
+assets/i_minus_grey.png
+assets/font-awesome/fontawesome-webfont.woff
+assets/font-awesome/fontawesome-webfont.ttf
+favicon.ico
+/assets/application.css?body=1
+<% @asset_list.each do |asset| %>
+<%= "assets/#{@environment.find_asset(asset).digest_path}" rescue nil %>
+<% end %>
 <%= stylesheet_path 'application' %>
 <%= javascript_path 'application' %>
 <% @items.each do |item| %>
