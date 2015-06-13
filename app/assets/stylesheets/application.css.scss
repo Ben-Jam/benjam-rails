@@ -11,3 +11,20 @@
 // Application specific css
 @import 'groups/group-cards';
 @import 'groups/chosen-item-callout';
+
+
+.cache-progress-bar {
+  display: block;
+  clear: left;
+}
+
+.cache-progress-bar__container {
+  width: 100%;
+  height: 20px;
+}
+
+.cache-progress-bar__progress {
+  height: 20px;
+  width: 0%;
+  background-color: green;
+}
