@@ -31,6 +31,7 @@ $(function() {
   var appCache = window.applicationCache;
   appCache.addEventListener('progress', function(e){
     var progress = parseInt(e.loaded/e.total * 100);
+    $('.cache-progress-bar').show();
     $('.cache-progress-bar__progress').width(progress + '%');
     $('.cache-progress-bar__text').text(progress + '%');
 
