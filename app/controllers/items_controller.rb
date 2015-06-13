@@ -48,7 +48,10 @@ end
 # GET /items/1
 # GET /items/1.json
  def show
-     
+    @mode = params[:mode]
+    unless @mode
+      @mode = 'default'
+    end
     @item = Item.find(params[:id])
     @items = @item.children.order(:position)
     respond_to do |format|
