@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+<%= stylesheet_path 'application' %>
+<%= javascript_path 'application' %>
+<% @items.each do |item| %>
+<%= item_path item %>
+<%= image_item_path(item, format: :jpg) %>
+<%= audio_item_path(item, format: :wav) %>
+<% end %>
+
