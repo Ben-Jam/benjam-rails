@@ -4,8 +4,8 @@
   <img id="item_image" class="chosen-item-callout__image" src="<%= image_item_path(@item, format: :jpg) %>"/>
   <audio id="item_audio" src="<%= audio_item_path(@item, format: :wav) %>" autoplay="true" autobuffer="true" ></audio>
   <span class="chosen-item-callout__done">
-    <a href="<%=client_path(@item.client.name)%>" class="choice_done"><i class="fa fa-check"></i></a>
-    <a href="<%=client_path(@item.client.name)%>" class="choice_cancelled"><i class="fa fa-times"></i></a>
+    <a href="<%=client_path(@item.client.name)%>" on_click="on_correct_choice" class="choice_done"><i class="fa fa-check"></i></a>
+    <a href="<%=client_path(@item.client.name)%>" on_click="on_wrong_choice" class="choice_cancelled"><i class="fa fa-times"></i></a>
   </span>
   <div id="delete_step2">
     <%= button_to 'Confirm Delete', client_item_path(@client.name, @item), method: :delete, class: 'chosen-item-callout__delete__link' %>
@@ -17,4 +17,44 @@ $("#item_image")
 	.on("click",function() {
 		itemAudio.play();
 	});
+
+$(document).ready(function(){
+    $.post("<%=client_events_path(@client.name)%>",
+    {
+        name: "Chosen Item",
+        description: '<%= "client has chosen #{@item.name}"%>'
+    },
+    function(data, status){
+      
+    });
+});
+
+on_correct_choice = function(e){
+  e.preventDefault()
+    $.post("<%=client_events_path(@client.name)%>",
+    {
+        name: "Correct item",
+        description: '<%= "client has chosen #{@item.name}"%>'
+    }).done (
+    function(data, status){
+      
+    });
+     //setTimeout(function(){window.location = $(".choice_done").attr("href")}, 2000)
+     
+  }
+
+on_wrong_choice = function(e){
+  e.preventDefault()
+    $.post("<%=client_events_path(@client.name)%>",
+    {
+        name: "Wrong Item",
+        description: '<%= "client has chosen #{@item.name}"%>'
+    }).done(
+    function(data, status){
+      
+    });
+     //setTimeout(function(){window.location = $(".choice_cancelled").attr("href")}, 2000)
+     
+  }
+
 </script>

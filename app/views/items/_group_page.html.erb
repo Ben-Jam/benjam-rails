@@ -13,5 +13,18 @@
   </div>
 </section>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $.post("<%=client_events_path(@client.name)%>",
+    {
+        name: "Selected Category",
+        description: '<%= "client has drilled into #{current_item.name}"%>'
+    },
+    function(data, status){
+    });
+});
+</script>
+
 
 

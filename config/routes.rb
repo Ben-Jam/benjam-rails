@@ -20,6 +20,7 @@ BenjamRails::Application.routes.draw do
 
 
 resources :clients do
+   resources :events ,only: [:index,:create]
    resources :items do
    member do
         get 'image'
