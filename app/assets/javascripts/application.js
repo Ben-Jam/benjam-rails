@@ -35,6 +35,10 @@ $(function() {
       $('.cache-progress-bar').remove();
     }
   }, false);
+  appCache.addEventListener('error', function(e){
+    $('.cache-progress-bar__text').text('ERROR ' + ' ' + e.loaded + '/' + e.total);
+  	console.log(e);
+  }, false);
 
   // Only executes item is pressed down for more than msToWaitFor miliseconds
   delayAction = function(item, action){
