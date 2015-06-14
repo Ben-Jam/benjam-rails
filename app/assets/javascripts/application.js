@@ -40,6 +40,17 @@ $(function() {
   	console.log(e);
   }, false);
 
+  $('.group-card').each(function(){
+    var path = $(this).attr('href');
+    $(this).on('click', function(e){
+      e.preventDefault()
+      $('audio', this)[0].play();
+      $('audio', this).on('ended', function(){
+          window.location = path;
+      });
+    });
+  })
+
   // Only executes item is pressed down for more than msToWaitFor miliseconds
   delayAction = function(item, action){
     var msToWaitFor = 2000; // how many miliseconds to wait
