@@ -27,4 +27,31 @@ $(function() {
     $("#delete_step2").show();
     setTimeout(function(){$("#delete_step2").hide()}, 3000 );
   });
+
+  var appCache = window.applicationCache;
+  appCache.addEventListener('progress', function(e){
+    var progress = parseInt(e.loaded/e.total * 100);
+    $('.cache-progress-bar').show();
+    $('.cache-progress-bar__progress').width(progress + '%');
+    $('.cache-progress-bar__text').text(progress + '%');
+
+    if(progress === 100) {
+      $('.cache-progress-bar').remove();
+    }
+  }, false);
+  appCache.addEventListener('error', function(e){
+    $('.cache-progress-bar__text').text('ERROR ' + ' ' + e.loaded + '/' + e.total);
+  	console.log(e);
+  }, false);
+
+  $('.group-card').each(function(){
+    var path = $(this).attr('href');
+    $(this).on('click', function(e){
+      e.preventDefault()
+      $('audio', this)[0].play();
+      $('audio', this).on('ended', function(){
+          window.location = path;
+      });
+    });
+  })
 });

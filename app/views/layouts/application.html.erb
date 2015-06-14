@@ -18,7 +18,7 @@
           <%= image_tag "user_ben.png",class: 'user' %>
         </div>
         <div class="navbar-header">
-          <a href="<%=item_items_path(Item.root)%>">
+          <a href="/">
             <%= image_tag "i_home.png",class: 'home' %>
           </a>
         </div>
@@ -52,9 +52,21 @@
         <%= yield %>
 
       </div>
-	
+
+      <div class="cache-progress-bar">
+        <p>Cache load progress</p>
+        <div class="cache-progress-bar__container">
+          <div class="cache-progress-bar__progress"></div>
+        </div>
+        <div class="cache-progress-bar__text"></div>
+      </div>
+
     </div> <!-- /container -->
 	
+
+    <script type="text/javascript">
+
+    </script>
 
 </body>
 </html>
