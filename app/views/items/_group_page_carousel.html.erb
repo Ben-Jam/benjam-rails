@@ -1,0 +1,31 @@
+<script type="text/javascript">
+$(function() {
+$('ul li:even').addClass('even');
+$('ul li:odd').addClass('odd');
+setTimeout(RotateCarousel(), 3000);
+function RotateCarousel() {  
+    $("ul li:first-child").animate({ marginLeft: -700  }, 2500, 'linear', function () {
+        $("ul li:first-child").appendTo('ul');
+        $("ul li:last-child").css('margin-Left', 10);
+        RotateCarousel();
+    });
+}
+});
+</script>
+
+<section class="group-cards" id="group-cards-container">
+  <div id="item-heading"><%=current_item.name%></div>
+        <audio  src="<%= audio_item_path(current_item, format: :wav) %>"  autoplay="true" autobuffer="true"></audio>
+  <div id="all_cards">  		
+			<div id="carousel_list">
+			  <ul>
+					 <% @items.each do | item |%>
+						<li><a href="<%= item_path(item.id) %>" >
+						<img  src="<%= image_item_path(item, format: :jpg) %>" width="60%" height="60%">
+						  <h2 class="group-card__header"><%= item.name%></h2>
+						  </a></li>
+						  <% end %>
+               </ul>			
+		</div>
+  </div>
+</section>

@@ -60,3 +60,22 @@ section.group-cards{
 
 }}
 
+
+#carousel_list { 
+	width:1000px;
+	overflow:hidden; 
+}
+
+ul { 
+	list-style-type:none;
+	width:10000px;
+	margin:20px;
+	padding:20px; 
+}
+
+li { 
+	float:left;
+	text-align:center;
+	margin:20px;
+	padding:0; 
+}
