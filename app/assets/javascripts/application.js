@@ -43,4 +43,15 @@ $(function() {
     $('.cache-progress-bar__text').text('ERROR ' + ' ' + e.loaded + '/' + e.total);
   	console.log(e);
   }, false);
+
+  $('.group-card').each(function(){
+    var path = $(this).attr('href');
+    $(this).on('click', function(e){
+      e.preventDefault()
+      $('audio', this)[0].play();
+      $('audio', this).on('ended', function(){
+          window.location = path;
+      });
+    });
+  })
 });
