@@ -1,0 +1,45 @@
+<style>
+.flex-control-paging { display: none; }
+.flex-nav-prev { position: absolute; left: 50px; top: -150px; }
+.flex-nav-next { position: absolute; right: 50px; top: -150px; }
+.flex-next { font-size: 0px; background: url(/arrows.png); background-position: 100% 0%; display: inline-block; width: 54px; height: 54px; }
+.flex-prev { font-size: 0px; background: url(/arrows.png); display: inline-block; width: 54px; height: 54px; }
+.flexslider ul, li { list-style-type: none; }
+.flexslider {  position: absolute; top: 200px; left: 200px; right: 30px; }
+.slides img { margin-right: auto; margin-bottom: auto; }
+</style>
+
+<script src="/jquery.flexslider.js"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+    	animation: 'slide',
+    	slideshow: false,
+    });
+  });
+</script>
+
+<section class="group-cards" id="group-cards-container">
+  <div id="item-heading"><%=current_item.name%></div>
+        <audio  src="<%= audio_item_path(current_item, format: :wav) %>"  autoplay="true" autobuffer="true"></audio>
+	<div class="flexslider">
+	  <ul class="slides">
+	  <% @items.each do | item |%>
+	    <li>
+	      <div>
+	    	<a class="group-card" href="<%= item_path(item.id) %>" >
+		  	  <img src="<%= image_item_path(item, format: :jpg) %>">
+		      <h2 class="group-card__header"><%= item.name%></h2>
+		    </a>
+	      </div>
+	    </li>
+
+	  <% end %>
+	  </ul>
+	</div>
+
+
+
+</section>
