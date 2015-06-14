@@ -30,9 +30,6 @@
             </a>
           </div>
           <div>
-            <a href="<%=chooser_path %>">
-              choose mode
-            </a>
           </div>
           <%if @item.children.none?%>
 
@@ -49,7 +46,13 @@
         <%= yield %>
 
       </div>
+	  	<div id="scroll-mode">
+			<a href="<%=chooser_path %>">
+              <span style="color:grey"> Choose scrolling mode </span>
+            </a>
+		</div>
     </div> <!-- /container -->
+	
 
 </body>
 </html>
