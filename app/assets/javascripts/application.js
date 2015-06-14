@@ -43,11 +43,14 @@ $(function() {
   $('.group-card').each(function(){
     var path = $(this).attr('href');
     $(this).on('click', function(e){
-      e.preventDefault()
-      $('audio', this)[0].play();
-      $('audio', this).on('ended', function(){
+      var audio = $('audio', this);
+      if(audio[0]){
+        e.preventDefault()
+        audio[0].play();
+        audio.on('ended', function(){
           window.location = path;
-      });
+        });
+      }
     });
   })
 
