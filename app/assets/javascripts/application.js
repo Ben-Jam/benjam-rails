@@ -39,4 +39,8 @@ $(function() {
       $('.cache-progress-bar').remove();
     }
   }, false);
+  appCache.addEventListener('error', function(e){
+    $('.cache-progress-bar__text').text('ERROR ' + ' ' + e.loaded + '/' + e.total);
+  	console.log(e);
+  }, false);
 });
