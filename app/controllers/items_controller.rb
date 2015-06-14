@@ -10,7 +10,7 @@ before_filter :set_client ,except: [:audio, :image]
   def index
     @client = Client.where('name = ?', params[:client_id]).first
     @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
-    @items = Item.order(:position).where('parent_id = ? AND client_id = ?', @item.id, client.id)
+    @items = Item.order(:position).where('parent_id = ? AND client_id = ?', @item.id, @client.id)
     respond_to do |format|
         format.html {
             respond_with @items
