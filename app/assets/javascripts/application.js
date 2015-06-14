@@ -53,6 +53,7 @@ $(function() {
       mouseup: function(e) {
         if(allowClick){
           action(item, e);
+          allowClick = false;
         }
         clearTimeout(downTimer); 
       },
