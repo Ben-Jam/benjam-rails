@@ -21,21 +21,19 @@ BenjamRails::Application.routes.draw do
 
 resources :clients do
    resources :items do
-   resources :items
    member do
         get 'image'
         get 'audio'
-      end
+    end
   end
 end
 
 resources :items do
- resources :items
    member do
         get 'image'
         get 'audio'
-      end
     end
+  end
 
   # Example resource route with options:
   #   resources :products do
