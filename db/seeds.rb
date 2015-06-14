@@ -8,7 +8,8 @@ Client.create( id: 1000, name: "ben")
 
 audio = File.read("app/assets/audio/iwant.wav")
 
-Item.create( id: 1000, name: "I want...", client_id: 1000, audio: audio , position: 1)
+image = File.read("app/assets/images/iwant.png")
+Item.create( id: 1000, name: "I want...", client_id: 1000, image: image, audio: audio , position: 1)
 
 
 item_list = [
@@ -65,8 +66,8 @@ Client.create( id: 2000, name: "mary")
 
 
 ActiveRecord::Base.connection.reset_pk_sequence!('items')
-
-Item.create( id: 2000, name: "I feel", client_id: 2000 , position: 1)
+image = File.read("app/assets/images/ifeel.png")
+Item.create( id: 2000, name: "I feel", image: image, client_id: 2000 , position: 1)
 feel_list = [
     [2001, "Angry", 2000, 5, "angry.png", nil],
     [2002, "Frustrated", 2000, 4, "frustrated.png", nil],
@@ -82,10 +83,11 @@ feel_list.each do |id, name, parent, position, image_path, audio_path|
 end
 
 hurt_list = [
-    [2003, "Hurt", 2000,  3, "hurt.png", nil],
+    [2003, "Hurt", 3000,  3, "hurt.png", nil],
 ]
 
-Item.create( id: 3000, name: "I hurt", client_id: 2000 , position: 1)
+image = File.read("app/assets/images/ihurt.png")
+Item.create( id: 3000, name: "I hurt", client_id: 2000, image: image, position: 1)
 hurt_list.each do |id, name, parent, position, image_path, audio_path|
   image = File.read("app/assets/images/#{image_path}")
   Item.create( id: id, client_id: 2000 , name: name, parent_id: parent, position: position, image: image, audio: audio )
