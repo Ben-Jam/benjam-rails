@@ -21,13 +21,9 @@
 // });
 // })
 
-$(function() {
-  // On pressing delete_step1 show delete_step2 for a few seconds
-  $("#delete_step1").on("click", function() {
-    $("#delete_step2").show();
-    setTimeout(function(){$("#delete_step2").hide()}, 3000 );
-  });
 
+
+$(function() {
   var appCache = window.applicationCache;
   appCache.addEventListener('progress', function(e){
     var progress = parseInt(e.loaded/e.total * 100);
@@ -39,4 +35,47 @@ $(function() {
       $('.cache-progress-bar').remove();
     }
   }, false);
+
+  // Only executes item is pressed down for more than msToWaitFor miliseconds
+  delayAction = function(item, action){
+    var msToWaitFor = 2000; // how many miliseconds to wait
+    var downTimer;
+    var allowClick = false;
+    item.on({
+      mousedown: function(e) {
+        e.preventDefault();
+        clearTimeout(downTimer);
+        downTimer = setTimeout(function() {
+          allowClick = true;
+          console.log('ready for action');
+        }, msToWaitFor); 
+      },
+      mouseup: function(e) {
+        if(allowClick){
+          action(item, e);
+        }
+        clearTimeout(downTimer); 
+      },
+      click: function(e) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  }
+
+  ahrefAction = function(item, e){
+    window.location = item.attr('href');
+  }
+
+  deleteAction = function(item, e){
+    $("#delete_step2").show();
+    setTimeout(function(){$("#delete_step2").hide()}, 3000 );
+  }
+
+  // On pressing any a link with a delayed-action class, go to its href attribute
+  delayAction($("a.delayed-action"), ahrefAction)
+
+  // On pressing delete_step1 show delete_step2 for a few seconds
+  delayAction($("#delete_step1"), deleteAction)
+
 });

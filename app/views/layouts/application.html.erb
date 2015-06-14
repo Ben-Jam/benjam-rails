@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head>
   <title>BenjamRails</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -25,7 +25,7 @@
 
         <%unless @item && @item.id%>
           <div>
-            <a href="<%=new_client_item_path(@client.name)%>">
+            <a class="delayed-action" href="<%=new_client_item_path(@client.name)%>">
               <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
@@ -33,7 +33,7 @@
 
         <%if @item && @item.id%>
           <div>
-            <a href="<%=new_client_item_path(@client.name, @item)%>">
+            <a class="delayed-action" href="<%=new_client_item_path(@client.name, @item)%>">
               <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
