@@ -25,6 +25,7 @@ item_list.each do |id, name, position, image_path, audio_path|
 end
 
 
+
 # Second level items: ID, name, parent, position
 #
 children_item_list = [
@@ -65,4 +66,27 @@ Client.create( id: 2000, name: "mary")
 
 ActiveRecord::Base.connection.reset_pk_sequence!('items')
 
-Item.create( id: 2000, name: "Hugs", client_id: 2000 , position: 1)
+Item.create( id: 2000, name: "I feel", client_id: 2000 , position: 1)
+feel_list = [
+    [2001, "Angry", 2000, 5, "angry.png", nil],
+    [2002, "Frustrated", 2000, 4, "frustrated.png", nil],
+    [2004, "Scared", 2000,  2, "scared.png", nil],
+    [2005, "Happy", 2000,  1, "happy.png", nil],
+    [2006, "Tired", 2000,  6, "tired.png", nil],
+    [2007, "Sad", 2000,  7, "sad.png", nil]
+]
+
+feel_list.each do |id, name, parent, position, image_path, audio_path|
+  image = File.read("app/assets/images/#{image_path}")
+  Item.create( id: id, client_id: 2000 , name: name, parent_id: parent, position: position, image: image, audio: audio )
+end
+
+hurt_list = [
+    [2003, "Hurt", 2000,  3, "hurt.png", nil],
+]
+
+Item.create( id: 3000, name: "I hurt", client_id: 2000 , position: 1)
+hurt_list.each do |id, name, parent, position, image_path, audio_path|
+  image = File.read("app/assets/images/#{image_path}")
+  Item.create( id: id, client_id: 2000 , name: name, parent_id: parent, position: position, image: image, audio: audio )
+end
