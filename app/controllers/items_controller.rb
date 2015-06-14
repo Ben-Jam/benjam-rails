@@ -7,7 +7,7 @@ respond_to :html, :json
 # GET /items/1/items
 # GET /items/1/items.json
   def index
-    @mode = cookies[:mode]
+    @mode = params[:mode] || cookies[:mode]
     unless @mode
       @mode = 'default'
     end
@@ -57,7 +57,7 @@ end
 # GET /items/1
 # GET /items/1.json
  def show
-    @mode = cookies[:mode]
+    @mode =  params[:mode] ||cookies[:mode]
     unless @mode
       @mode = 'default'
     end
