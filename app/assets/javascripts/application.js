@@ -43,6 +43,15 @@ $(function() {
     $('.cache-progress-bar__text').text('ERROR ' + ' ' + e.loaded + '/' + e.total);
   	console.log(e);
   }, false);
+  appCache.addEventListener('updateready', function(e){
+	
+		if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+		  // Browser downloaded a new app cache.
+		    window.location.reload();
+		} else {
+		  // Manifest didn't changed. Nothing new to server.
+		}
+  }, false);
 
   $('.group-card').each(function(){
     var path = $(this).attr('href');

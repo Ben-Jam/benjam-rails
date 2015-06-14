@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html manifest="cache.manifest">
 <head>
   <title>BenjamRails</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -31,11 +31,6 @@
           </div>
           <div>
           </div>
-		  	<div id="scroll-mode">
-			<a href="<%=chooser_path %>">
-              <span style="color:grey"> Choose scrolling mode </span>
-            </a>
-		</div>
           <%if @item.children.none?%>
 
               <%= image_tag "i_minus_grey.png",class: 'delete',id: "delete_step1" %>         
@@ -43,6 +38,11 @@
             </div>
 			
           <%end%>         
+        <div id="scroll-mode" style="margin: 10px;">
+      <a href="<%=chooser_path %>">
+              <span style="color:grey"> Choose scrolling mode </span>
+            </a>
+    </div>
         <%end%>
 
       </nav>

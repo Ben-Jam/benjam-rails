@@ -1,4 +1,9 @@
 CACHE MANIFEST
+
+# <%= @mode %>
+/jquery.flexslider.js
+/arrows.png
+
 <% unless Rails.env.production? %>
 <% paths_for_manifests(%w(application.js)).each do |manifest_path| %>
 <%= build_digested_asset_path manifest_path, true %>
