@@ -7,10 +7,7 @@ respond_to :html, :json
 # GET /items/1/items
 # GET /items/1/items.json
   def index
-    @mode = params[:mode] || cookies[:mode]
-    unless @mode
-      @mode = 'default'
-    end
+    @mode = params[:mode] || cookies[:mode] || 'default'
 
       @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
     @items = Item.order(:position).where('parent_id = ?',@item.id)
@@ -57,10 +54,8 @@ end
 # GET /items/1
 # GET /items/1.json
  def show
-    @mode =  params[:mode] ||cookies[:mode]
-    unless @mode
-      @mode = 'default'
-    end
+    @mode =  params[:mode] || cookies[:mode] || 'default'
+
     @item = Item.find(params[:id])
     @items = @item.children.order(:position)
     respond_to do |format|
