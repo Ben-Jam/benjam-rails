@@ -8,6 +8,7 @@ BenjamRails::Application.routes.draw do
   root 'items#index'
 
   get 'cache.manifest' => 'cache#index'
+  get 'chooser' => 'chooser#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

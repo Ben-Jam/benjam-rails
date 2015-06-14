@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html >
 <head>
   <title>BenjamRails</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -27,6 +27,11 @@
           <div>
             <a href="<%=new_item_item_path(@item)%>">
               <%= image_tag "i_add_grey.png",class: 'edit' %>
+            </a>
+          </div>
+          <div>
+            <a href="<%=chooser_path %>">
+              choose mode
             </a>
           </div>
           <%if @item.children.none?%>

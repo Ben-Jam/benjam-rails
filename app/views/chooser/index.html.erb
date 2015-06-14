@@ -1,0 +1,21 @@
+<section class="chosen-item-callout">
+
+  <h1 class="chosen-item-callout__heading">Choose the scrolling mode</h1>
+
+  <script type="text/javascript">
+  $(function() {
+    $(".choose_button").click(function(ev) {
+      console.log(ev);
+      document.cookie = "mode=" + $(ev.target).data('cid');
+      window.location = '/';
+    });
+  });
+  </script>
+  
+  <form>
+    <button type="button" class="choose_button" data-cid="default">Default</button>
+    <button type="button" class="choose_button" data-cid="test">Test</button>
+    <button type="button" class="choose_button" data-cid="swipe">Swipe</button>
+  </form>
+
+</section>

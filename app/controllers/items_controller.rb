@@ -7,6 +7,11 @@ respond_to :html, :json
 # GET /items/1/items
 # GET /items/1/items.json
   def index
+    @mode = cookies[:mode]
+    unless @mode
+      @mode = 'default'
+    end
+
       @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
     @items = Item.order(:position).where('parent_id = ?',@item.id)
     respond_to do |format|
@@ -22,6 +27,10 @@ respond_to :html, :json
             
         }
     end
+  end
+
+  def chooser
+
   end
 
 # GET /items/1/images.jpg
@@ -48,7 +57,7 @@ end
 # GET /items/1
 # GET /items/1.json
  def show
-    @mode = params[:mode]
+    @mode = cookies[:mode]
     unless @mode
       @mode = 'default'
     end
