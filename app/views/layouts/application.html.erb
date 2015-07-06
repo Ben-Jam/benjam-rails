@@ -33,7 +33,7 @@
 
         <%if @item && @item.id%>
           <div>
-            <a class="delayed-action" href="<%=new_client_item_path(@client.name, @item)%>">
+            <a class="delayed-action" href="/clients/<%=@client.name%>/items/new?item_id=<%=@item.id%>">
               <%= image_tag "i_add_grey.png",class: 'edit' %>
             </a>
           </div>
