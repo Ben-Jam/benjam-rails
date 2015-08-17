@@ -4,9 +4,11 @@
 
 # Top level items: ID, name, position
 #
+Client.create( id: 1000, name: "ben")
+
 audio = File.read("app/assets/audio/iwant.wav")
 
-Item.create( id: 1000, name: "I want...", audio: audio , position: 1)
+Item.create( id: 1000, name: "I want...", client_id: 1000, audio: audio , position: 1)
 
 
 item_list = [
@@ -19,7 +21,7 @@ item_list = [
 item_list.each do |id, name, position, image_path, audio_path|
   image = File.read("app/assets/images/#{image_path}")
   audio = File.read("app/assets/audio/#{audio_path}")
-  Item.create( id: id, name: name, position: position, image: image, audio: audio,parent_id: 1000)
+  Item.create( id: id,  client_id: 1000 ,name: name, position: position, image: image, audio: audio,parent_id: 1000)
 end
 
 
@@ -54,7 +56,13 @@ children_item_list = [
 children_item_list.each do |id, name, parent, position, image_path, audio_path|
   image = File.read("app/assets/images/#{image_path}")
   audio = File.read("app/assets/audio/#{audio_path}")
-  Item.create( id: id, name: name, parent_id: parent, position: position, image: image, audio: audio )
+  Item.create( id: id, client_id: 1000 , name: name, parent_id: parent, position: position, image: image, audio: audio )
 end
 
+
+Client.create( id: 2000, name: "mary")
+
+
 ActiveRecord::Base.connection.reset_pk_sequence!('items')
+
+Item.create( id: 2000, name: "Hugs", client_id: 2000 , position: 1)

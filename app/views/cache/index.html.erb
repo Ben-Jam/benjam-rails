@@ -15,7 +15,7 @@ CACHE MANIFEST
 <% end %>
 
 <% @items.each do |item| %>
-<%= item_path item %>
+<%= client_item_path item.client.name, item %>
 <%= image_item_path(item, format: :jpg) %>
 <%= audio_item_path(item, format: :wav) %>
 <% end %>

@@ -7,7 +7,7 @@
     $(".choose_button").click(function(ev) {
       console.log(ev);
       document.cookie = "mode=" + $(ev.target).data('cid');
-      window.location = '/';
+      window.location = '<%= client_path(@client.name) %>';
     });
   });
   </script>

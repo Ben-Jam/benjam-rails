@@ -1,28 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+==Pushing to heroku
+1) heroku git:remote -a benjam
+this adds a heroku remote to your local repo
+2) git push heroku master
+this pushes your current master into heroku 
 
-Things you may want to cover:
+if you need to run migrations 
+3) heroku run rake db:migrate
+4) heroku restart
+5)heroku restart
 
-* Ruby version
+andd all should be well
 
-* System dependencies
+if you need to reset your database
 
-* Configuration
+1) heroku config | grep POSTGRESQL 
+gets the database URL
+this currently gives you back
 
-* Database creation
+HEROKU_POSTGRESQL_AMBER_URL: postgres://ccegxhzwtuqwbm:LXCp2jSsZenJFEqDzNckjC08f_@ec2-54-197-227-238.compute-1.amazonaws.com:5432/ddc5ii2ptts3us
 
-* Database initialization
+2)heroku pg:reset HEROKU_POSTGRESQL_AMBER_URL
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+3) heroku run rake db:migrate
+4) heroku run db:seed
+4) heroku restart

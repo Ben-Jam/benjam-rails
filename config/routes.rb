@@ -1,5 +1,5 @@
 BenjamRails::Application.routes.draw do
-  resources :blahs
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,7 +8,6 @@ BenjamRails::Application.routes.draw do
   root 'items#index'
 
   get 'cache.manifest' => 'cache#index'
-  get 'chooser' => 'chooser#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -18,13 +17,23 @@ BenjamRails::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :items do
-   resources :items
+
+
+resources :clients do
+   get 'chooser' => 'chooser#index'
+   resources :items do
    member do
         get 'image'
         get 'audio'
-      end
-    
+    end
+  end
+end
+
+resources :items do
+   member do
+        get 'image'
+        get 'audio'
+    end
   end
 
   # Example resource route with options:

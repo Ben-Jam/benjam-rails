@@ -1,16 +1,19 @@
 class ItemsController < ApplicationController
 
 respond_to :html, :json
+before_filter :set_client ,except: [:audio, :image]
 
 # GET /items
 # GET /items.json
 # GET /items/1/items
 # GET /items/1/items.json
   def index
-    @mode = params[:mode] || cookies[:mode] || 'default'
 
-      @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
-    @items = Item.order(:position).where('parent_id = ?',@item.id)
+    @mode = params[:mode] || cookies[:mode] || 'default'
+    @client = Client.where('name = ?', params[:client_id]).first
+    @item = params[:item_id] == nil ? Item.root : Item.find(params[:item_id])
+    @items = Item.order(:position).where('parent_id = ? AND client_id = ?', @item.id, @client.id)
+
     respond_to do |format|
         format.html {
             respond_with @items
@@ -85,12 +88,13 @@ end
     @item = Item.new item_params
     @item.image = params[:item][:image].read if params[:item][:image]
     @item.audio = params[:item][:audio].read if params[:item][:audio]
+    @item.client = @client
     puts @item.inspect
     @item.save
     if params[:item][:parent_id].present?
-      path = item_path(@item.parent)
+      path = client_item_path(@client.name, @item.parent)
     else
-      path = items_path
+      path = client_path(@client.name)
     end
     respond_to do |format|
       format.html { redirect_to path, notice: 'Created'}
@@ -102,16 +106,28 @@ end
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+
+    if @item.parent
+      path = client_item_path(@client.name, @item.parent)
+    else
+      path = client_path(@client.name)
+    end
+
     respond_to do |format|
-      format.html { redirect_to item_path(@item.parent), notice: 'Item deleted' }
+      format.html { redirect_to path, notice: 'Item deleted' }
       format.json { head :no_content , status: :ok}
     end
+  end
+
+  def set_client
+    @client = Client.where('name = ?', params[:client_id]).first if params[:client_id]
+    @client = Client.where('name = ?', params[:item][:client_id]).first if params[:item] && params[:item][:client_id]
   end
 
   private
 
   def new_item_params
-    params.permit(:name, :parent_id, :position, :image, :audio)
+    params.permit(:name, :parent_id, :position, :image, :audio,:client_id)
   end
 
   def item_params
