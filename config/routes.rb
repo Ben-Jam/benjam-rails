@@ -22,12 +22,14 @@ BenjamRails::Application.routes.draw do
 resources :clients do
    get 'chooser' => 'chooser#index'
    resources :items do
+      get 'index'
    member do
         get 'image'
         get 'audio'
     end
   end
 end
+
 
 resources :items do
    member do
