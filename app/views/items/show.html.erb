@@ -1,2 +1,9 @@
 <%= render "items/group_page_#{@mode}", items: @items ,current_item: @item%>
 
+<script type="text/javascript">
+  mixpanel.track('View item', {
+    'id': '<%= params[:client_id] %>',
+    'mode': '<%= @mode %>',
+    'item name': '<%= @item.name %>'
+  });
+</script>
