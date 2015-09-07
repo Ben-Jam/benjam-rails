@@ -23,6 +23,7 @@ resources :clients do
    get 'chooser' => 'chooser#index'
    resources :items do
       get 'index'
+      get 'nested' => 'items#new'
    member do
         get 'image'
         get 'audio'

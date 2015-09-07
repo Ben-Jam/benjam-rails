@@ -2,7 +2,7 @@
 
   <h1 class="chosen-item-callout__heading">New Item</h1>
   <%= form_for @item, html: {multipart: true, role: "form"} do |f| %>
-    <%= f.hidden_field 'parent_id' %>
+    <%= f.hidden_field 'parent_id', parent_id: @item.parent_id%>
     <%= f.hidden_field 'client_id', client_id: @client.name %>    
     <div class="new_form">
       <div>Name: <%= f.text_field :name %></div>
