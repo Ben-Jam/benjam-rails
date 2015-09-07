@@ -18,3 +18,11 @@ $("#item_image")
 		itemAudio.play();
 	});
 </script>
+
+<script type="text/javascript">
+  mixpanel.track('Show choice', {
+    'id': '<%= params[:client_id] %>',
+    'mode': '<%= @mode %>',
+    'item name': '<%= @item.name %>'
+  });
+</script>
