@@ -7,8 +7,9 @@
 Client.create( id: 1000, name: "ben")
 
 audio = File.read("app/assets/audio/iwant.wav")
+image = File.read("app/assets/images/iwant.png")
 
-Item.create( id: 1000, name: "I want...", client_id: 1000, audio: audio , position: 1)
+Item.create( id: 1000, name: "I want...", client_id: 1000, audio: audio, position: 1, image: image)
 
 
 item_list = [
@@ -21,7 +22,7 @@ item_list = [
 item_list.each do |id, name, position, image_path, audio_path|
   image = File.read("app/assets/images/#{image_path}")
   audio = File.read("app/assets/audio/#{audio_path}")
-  Item.create( id: id,  client_id: 1000 ,name: name, position: position, image: image, audio: audio,parent_id: 1000)
+  Item.create( id: id,  client_id: 1000 ,name: name, position: position, image: image, audio: audio, parent_id: 1000)
 end
 
 

@@ -1,6 +1,6 @@
 == README
 
-==Pushing to heroku
+== Pushing to heroku
 1) heroku git:remote -a benjam
 this adds a heroku remote to your local repo
 2) git push heroku master
@@ -9,7 +9,7 @@ this pushes your current master into heroku
 if you need to run migrations 
 3) heroku run rake db:migrate
 4) heroku restart
-5)heroku restart
+5) heroku restart
 
 andd all should be well
 
@@ -26,3 +26,14 @@ HEROKU_POSTGRESQL_AMBER_URL: postgres://ccegxhzwtuqwbm:LXCp2jSsZenJFEqDzNckjC08f
 3) heroku run rake db:migrate
 4) heroku run db:seed
 4) heroku restart
+
+
+== Initial Dev Setup
+
+  $ rvm use 2.0.0
+  $ bundle install
+  $ export PGDATA=~/Development/Data/pg
+  $ pg_ctl start
+  $ rake db:migrate
+  $ rake db:seed
+  $ rake test
