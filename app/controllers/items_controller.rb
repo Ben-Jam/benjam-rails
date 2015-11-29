@@ -47,10 +47,6 @@ before_filter :set_client ,except: [:audio, :image]
 def audio
     @item = Item.find(params[:id])
     respond_to do |format|
-        format.wav do
-            self.response.headers["Content-Type"] ||= 'audio/wav'
-            send_data @item.audio,  options: {type:'audio/wav; header=present', disposition:'inline'}
-        end
         format.mpeg do
             self.response.headers["Content-Type"] ||= 'audio/mpeg'
             send_data @item.audio,  options: {type:'audio/mpeg; header=present', disposition:'inline'}
