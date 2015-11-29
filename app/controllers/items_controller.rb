@@ -51,6 +51,10 @@ def audio
             self.response.headers["Content-Type"] ||= 'audio/wav'
             send_data @item.audio,  options: {type:'audio/wav; header=present', disposition:'inline'}
         end
+        format.mpeg do
+            self.response.headers["Content-Type"] ||= 'audio/mpeg'
+            send_data @item.audio,  options: {type:'audio/mpeg; header=present', disposition:'inline'}
+        end        
     end
 end
 
@@ -136,6 +140,6 @@ end
   
   def item_extract(item)
       return { :id => item.id, :name => item.name, :position => item.position, :parent_id => item.parent_id,
-          :image => item_path(item.id) + "/image.jpg", :audio => item_path(item.id) + "/audio.wav" }
+          :image => item_path(item.id) + "/image.jpg", :audio => item_path(item.id) + "/audio.mpeg" }
       end
 end
