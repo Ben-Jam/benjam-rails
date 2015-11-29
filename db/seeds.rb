@@ -31,7 +31,7 @@ end
 children_item_list = [
   [ 5, "biscuit", 1, 1, "biscuit.jpg", "biscuit.mp3" ],
   [ 6, "bread", 1, 2, "bread.jpg", "bread.mp3" ],
-  [ 7, "breadsticks", 1, 3, "breadsticks.jpg", "breadsticks.mp3" ],
+  [ 7, "breadsticks2", 1, 3, "breadsticks.jpg", "breadsticks.mp3" ],
   [ 8, "dinner", 1, 4 , "dinner.jpg", "dinner.mp3"],
   [ 9, "lollies", 1, 5, "lollies.jpg", "lollies.mp3" ],
   [ 10, "pink biscuit", 1, 6, "pinkbiscuit.jpg", "pinkbiscuit.mp3" ],
