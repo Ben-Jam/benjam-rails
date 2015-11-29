@@ -4,4 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 Mime::Type.register "application/jpg", :jpg
-Mime::Type.register "audio/wav", :wav
+Mime::Type.register "audio/mpeg", :mpeg

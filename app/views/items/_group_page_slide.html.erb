@@ -27,7 +27,7 @@
 	  <ul class="slides">
 	  <% @items.each do | item |%>
         <%if current_item.audio %>
-      	<audio  src="<%= audio_item_path(item, format: :wav) %>" autobuffer="true"></audio>
+      	<audio  src="<%= audio_item_path(item, format: :mpeg) %>" autobuffer="true"></audio>
 	   <%end%>
 	    <li>
 	      <div>

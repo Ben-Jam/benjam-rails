@@ -2,7 +2,7 @@
 
   <h1 class="chosen-item-callout__heading"><%= @item.name%></h1>
   <img id="item_image" class="chosen-item-callout__image" src="<%= image_item_path(@item, format: :jpg) %>"/>
-  <audio id="item_audio" src="<%= audio_item_path(@item, format: :wav) %>" autoplay="true" autobuffer="true" ></audio>
+  <audio id="item_audio" src="<%= audio_item_path(@item, format: :mpeg) %>" autoplay="true" autobuffer="true" ></audio>
   <span class="chosen-item-callout__done">
     <a href="<%=client_path(@item.client.name)%>" class="choice_done"><i class="fa fa-check"></i></a>
     <a href="<%=client_path(@item.client.name)%>" class="choice_cancelled"><i class="fa fa-times"></i></a>

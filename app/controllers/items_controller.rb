@@ -43,7 +43,7 @@ before_filter :set_client ,except: [:audio, :image]
             end
      end
  end
- # GET /items/1/audio.wav
+ # GET /items/1/audio.mpeg
 def audio
     @item = Item.find(params[:id])
     respond_to do |format|

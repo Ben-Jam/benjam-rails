@@ -7,7 +7,7 @@
   		<img class="group-card__image" src="<%= image_item_path(item, format: :jpg) %>">
       <h2 class="group-card__header"><%= item.name%></h2>
        <%if current_item.audio %>
-      	<audio  src="<%= audio_item_path(item, format: :wav) %>" autobuffer="true"></audio>
+      	<audio  src="<%= audio_item_path(item, format: :mpeg) %>" autobuffer="true"></audio>
 	   <%end%>
 
     </a>

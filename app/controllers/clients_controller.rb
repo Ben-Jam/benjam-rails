@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
 
     def item_extract(item)
      return { :id => item.id, :name => item.name, :position => item.position, :parent_id => item.parent_id,
-         :image => item_path(item.id) + "/image.jpg", :audio => item_path(item.id) + "/audio.wav" }
+         :image => item_path(item.id) + "/image.jpg", :audio => item_path(item.id) + "/audio.mpeg" }
       end
 
 end

@@ -20,7 +20,7 @@ function RotateCarousel() {
 			  <ul>
 					 <% @items.each do | item |%>
         <%if current_item.audio %>
-        <audio  src="<%= audio_item_path(item, format: :wav) %>" autobuffer="true"></audio>
+        <audio  src="<%= audio_item_path(item, format: :mpeg) %>" autobuffer="true"></audio>
      <%end%>
 						<li><a href="<%= client_item_path(item.client.name,item.id) %>" >
 						<img  src="<%= image_item_path(item, format: :jpg) %>" width="60%" height="60%">
